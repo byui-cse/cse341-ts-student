@@ -1,9 +1,10 @@
-import { Router, Request, Response } from 'express';
+import express from 'express';
+import contacts from './contacts';
 
-const routes: Router = Router();
+// Creating a new Router instance from Express.
+const router = express.Router();
 
-routes.get('/', (req: Request, res: Response) => {
-  res.send('Sarah Birch');
-});
+// Request that starts with '/contacts' will be passed to the 'contacts' Router instance for handling.
+router.use('/contacts', contacts);
 
-export default routes;
+export default router;
