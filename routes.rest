@@ -1,0 +1,24 @@
+// LOCALHOST
+###
+GET http://localhost:8080/contacts
+###
+GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b2
+###
+GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b3
+###
+GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b4
+
+// Render
+###
+GET https://ts-test-lr62.onrender.com/contacts
+
+###
+GET https://ts-test-lr62.onrender.com/contacts/6326567a07ec9687f1155195
+
+###
+GET https://ts-test-lr62.onrender.com/contacts/622023f642f9ab4cd6e060b3
+
+###
+GET https://ts-test-lr62.onrender.com/contacts/622023f642f9ab4cd6e060b4
+
+
