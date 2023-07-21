@@ -1,13 +1,10 @@
-// Importing necessary modules and functions
 import { getDb } from '../db/connect';
 import { ObjectId } from 'mongodb';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
 // Handler to get all contacts
-const getAll = async (req: Request, res: Response, next: NextFunction) => {
-  // Retrieving the database instance and querying all contacts
+const getAll = async (req: Request, res: Response) => {
   const result = getDb()?.collection('contacts').find();
-  // Transforming result to an array and sending as JSON response
   result?.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
@@ -15,17 +12,59 @@ const getAll = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 // Handler to get a single contact by id
-const getSingle = async (req: Request, res: Response, next: NextFunction) => {
-  // Converting request id parameter to ObjectId format for MongoDB
+const getSingle = async (req: Request, res: Response) => {
   const userId = new ObjectId(req.params.id);
-  // Retrieving the database instance and querying for the specific contact
   const result = getDb()?.collection('contacts').find({ _id: userId });
-  // Transforming result to an array and sending the first item(the contact data) as a JSON response
   result?.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
   });
 };
 
-// Exporting the handlers
-export { getAll, getSingle };
+// Handler to create a new contact
+const createContact = async (req: Request, res: Response) => {
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+  const response = await getDb()?.collection('contacts').insertOne(contact);
+  if (response?.acknowledged) {
+    res.status(201).json(response);
+  } else {
+    res.status(500).json({ error: 'Some error occurred while creating the contact.' });
+  }
+};
+
+// Handler to update an existing contact
+const updateContact = async (req: Request, res: Response) => {
+  const userId = new ObjectId(req.params.id);
+  const contact = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    favoriteColor: req.body.favoriteColor,
+    birthday: req.body.birthday
+  };
+  const response = await getDb()?.collection('contacts').replaceOne({ _id: userId }, contact);
+  if (response?.modifiedCount && response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json({ error: 'Some error occurred while updating the contact.' });
+  }
+};
+
+// Handler to delete a contact
+const deleteContact = async (req: Request, res: Response) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await getDb()?.collection('contacts').deleteOne({ _id: userId });
+  if (response?.deletedCount && response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json({ error: 'Some error occurred while deleting the contact.' });
+  }
+};
+
+export { getAll, getSingle, createContact, updateContact, deleteContact };

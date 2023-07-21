@@ -42,7 +42,4 @@ const getDb = (): Db | undefined => {
 };
 
 // Exporting the 'initDb' and 'getDb' functions so they can be imported and used in other modules(files).
-export {
-  initDb,
-  getDb,
-};
+export { initDb, getDb };

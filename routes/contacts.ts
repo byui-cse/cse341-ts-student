@@ -1,13 +1,19 @@
-import express from 'express';
-import { getAll, getSingle } from '../controllers/contacts';
+// Importing necessary modules and functions
+import express, { Router } from 'express';
+import {
+  getAll,
+  getSingle,
+  createContact,
+  updateContact,
+  deleteContact
+} from '../controllers/contacts';
 
-// Creating a new Router instance from Express.
-const router = express.Router();
+const router: Router = express.Router();
 
-// Defining a GET route for the path '/' that uses the 'getAll' controller function.
 router.get('/', getAll);
-
-// Defining a GET route for the path '/:id' that uses the 'getSingle' controller function.
 router.get('/:id', getSingle);
+router.post('/', createContact);
+router.put('/:id', updateContact);
+router.delete('/:id', deleteContact);
 
 export default router;

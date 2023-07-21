@@ -1,24 +1,70 @@
 // LOCALHOST
-###
+
+### GET contacts
 GET http://localhost:8080/contacts
-###
+
+### GET contact
 GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b2
-###
-GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b3
-###
-GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b4
+
+### POST contact
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Ashley",
+    "lastName":"Weaver",
+    "email":"aWeaver@test.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/2000"
+}
+
+### PUT contact
+PUT http://localhost:8080/contacts/64b9e13a0d5867ec5bb4ae16 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Sarah",
+    "lastName":"Birch",
+    "email":"test@gmail.com",
+    "favoriteColor":"Green",
+    "birthday":"12/12/20"
+}
+
+### DELETE contact
+DELETE http://localhost:8080/contacts/64b9e15b0d5867ec5bb4ae17 HTTP/1.1
 
 // Render
-###
+
+### GET contacts
 GET https://ts-test-lr62.onrender.com/contacts
 
-###
+### GET contact
 GET https://ts-test-lr62.onrender.com/contacts/622023f642f9ab4cd6e060b2
 
-###
-GET https://ts-test-lr62.onrender.com/contacts/622023f642f9ab4cd6e060b3
+### POST contact
+POST https://ts-test-lr62.onrender.com/contacts HTTP/1.1
+content-type: application/json
 
-###
-GET https://ts-test-lr62.onrender.com/contacts/622023f642f9ab4cd6e060b4
+{
+    "firstName":"Ashley",
+    "lastName":"Weaver",
+    "email":"aWeaver@test.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/2000"
+}
 
+### PUT contact
+PUT https://ts-test-lr62.onrender.com/contacts/64b9e13a0d5867ec5bb4ae16 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Sarah",
+    "lastName":"Birch",
+    "email":"test@gmail.com",
+    "favoriteColor":"Green",
+    "birthday":"12/12/20"
+}
+
+### DELETE contact
+DELETE https://ts-test-lr62.onrender.com/contacts/64b9e15b0d5867ec5bb4ae17 HTTP/1.1
 
