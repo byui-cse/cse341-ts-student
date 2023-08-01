@@ -17,4 +17,4 @@
 
 ## Solution
 
-[GitHub Repo](https://github.com/byui-cse/cse341-ts-student/tree/L01-personal-solution)
+[GitHub Repo](https://github.com/byui-cse/cse341-ts-student/tree/L01-class-complete)
