@@ -1,10 +1,10 @@
 // Importing necessary modules and functions
 import { getDb } from '../db/connect';
 import { ObjectId } from 'mongodb';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
 // Handler to get all contacts
-const getAll = async (req: Request, res: Response, next: NextFunction) => {
+const getAll = async (req: Request, res: Response) => {
   // Retrieving the database instance and querying all contacts
   const result = getDb()?.collection('contacts').find();
   // Transforming result to an array and sending as JSON response
@@ -15,7 +15,7 @@ const getAll = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 // Handler to get a single contact by id
-const getSingle = async (req: Request, res: Response, next: NextFunction) => {
+const getSingle = async (req: Request, res: Response) => {
   // Converting request id parameter to ObjectId format for MongoDB
   const userId = new ObjectId(req.params.id);
   // Retrieving the database instance and querying for the specific contact

@@ -28,7 +28,7 @@ app
   .use('/', routes);
 
 // Initializing the database and starting the server
-initDb((err: Error | null, db?: any) => {
+initDb((err: Error | null) => {
   if (err) {
     // Logging any error occurred during database initialization
     console.log(err);
