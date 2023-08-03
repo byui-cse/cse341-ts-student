@@ -1,7 +1,17 @@
-# Repository Introduction
+# CSE341 Lesson 3 Class Activity
 
-This repository contains a collection of code for students that take the CSE 341 course at Brigham Young University - Idaho.
+## Steps to complete activity
 
-## How to use this repository
+There isn't an official starting set of code for this class activity. Instead, you should use your assignment submission for lesson 2. If, for whatever reason, that is not an option, you may adopt [this code](https://github.com/byui-cse/cse341-ts-student/tree/L02-personal-solution) as a starting point for your project this week and for this class activity.
 
-Each branch contains a collection of code for a given assignment or class activity. Select a branch, and then either clone, fork, or download the zip file to access the files on your computer.
+Follow the steps listed in [this article](https://dev.to/knowankit/setup-eslint-and-prettier-in-react-app-357b).
+
+A couple of things to look out for...
+
+- Don't include anything about React
+- Select Node and JSON (not Browser and JavaScript)
+- Add "jest": true
+
+## Solution
+
+[GitHub Repo](https://github.com/byui-cse/cse341-code-student/tree/L03-class-complete)
