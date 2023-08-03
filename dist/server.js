@@ -4,12 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const routes_1 = __importDefault(require("./routes"));
+const connect_1 = require("./db/connect");
+const index_1 = __importDefault(require("./routes/index"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
-// Tell our program to use the routes we defined when handling any requests that come to the '/' path.
-app.use('/', routes_1.default);
-// Tell our app to start listening for requests on the specified port.
-app.listen(port, () => {
-    console.log(`Running on port ${port}`);
+(0, connect_1.initDb)((err, db) => {
+    if (err) {
+        console.error(err);
+    }
+    else {
+        app.listen(port);
+        console.log(`Connected to DB and listening on ${port}`);
+    }
 });
+app
+    // Using routes from routes module
+    .use('/', index_1.default);

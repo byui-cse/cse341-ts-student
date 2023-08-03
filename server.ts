@@ -1,13 +1,21 @@
-import express, { Express } from 'express';
-import routes from './routes';
+import express, { Express, Request, Response, NextFunction } from 'express';
+import { initDb } from './db/connect';
+import routes from './routes/index';
+import { Db } from 'mongodb'; 
 
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
 
-// Tell our program to use the routes we defined when handling any requests that come to the '/' path.
-app.use('/', routes)
-
-// Tell our app to start listening for requests on the specified port.
-app.listen(port, () => {
-    console.log(`Running on port ${port}`)
+initDb((err: Error | null, db?: Db | undefined) => { 
+  if (err) {
+    console.error(err);
+  } else {
+    app.listen(port);
+    console.log(`Connected to DB and listening on ${port}`);
+  }
 });
+
+app
+  
+  // Using routes from routes module
+  .use('/', routes);

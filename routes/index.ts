@@ -1,9 +1,9 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+import { getUser, getUsername } from '../controllers/users';
 
 const routes = Router();
 
-routes.get('/', (req: Request, res: Response) => {
-  res.send('Jenny Sanderson');
-});
+routes.get('/', getUser);
+routes.get('/username', getUsername);
 
 export default routes;
