@@ -8,10 +8,9 @@ const doc = {
   //schemes: ['http']
   host: 'ts-test-lr62.onrender.com',
   schemes: ['https']
-
 };
 
 const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.ts'];
 
-swaggerAutogen(outputFile, endpointsFiles, doc)
+swaggerAutogen(outputFile, endpointsFiles, doc);
