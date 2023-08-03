@@ -9,7 +9,6 @@
     "lint": "eslint '**/*.ts'",
     "lint:fix": "eslint '**/*.ts' --quiet --fix",
     "format": "prettier --write '**/*.ts'"
-    
   },
   "author": "",
   "license": "ISC",
