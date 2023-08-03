@@ -6,8 +6,10 @@
   "scripts": {
     "build": "npx tsc",
     "start": "npm run build && nodemon dist/app.js",
-    "lint": "eslint '*/**/*.ts' --quiet --fix",
-    "format": "prettier --write '*/**/*.ts'"
+    "lint": "eslint '**/*.ts'",
+    "lint:fix": "eslint '**/*.ts' --quiet --fix",
+    "format": "prettier --write '**/*.ts'"
+    
   },
   "author": "",
   "license": "ISC",
