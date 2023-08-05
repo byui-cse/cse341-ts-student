@@ -1,10 +1,11 @@
 import express, { Request, Response, NextFunction } from 'express';
-import path from 'path';
 import http from 'http';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import SwaggerDocument from './swagger.json';
 dotenv.config();
 
 // Import the routing file to handle the default (index) route
@@ -41,6 +42,9 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 app.use('/', index);
 app.use('/books', bookRoutes);
 
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(SwaggerDocument));
+
 // Establish a connection to the mongo database
 async function connectToDatabase() {
   try {
@@ -56,7 +60,7 @@ connectToDatabase();
 
 // Tell express to map all other non-defined routes back to the index page
 app.get('*', (req: Request, res: Response) => {
-  res.redirect('/');
+  res.redirect('/api-docs');
 });
 
 // Define the port address and tell express to use this port
