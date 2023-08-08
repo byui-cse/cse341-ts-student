@@ -1,6 +1,5 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
-import { initDb } from './db/connect';
 import routes from './routes/professional';
 
 // 'process.env.PORT' is an environment variable provided by the execution environment(Render will set it)
@@ -23,14 +22,4 @@ app
   // Using routes from routes module
   .use('/', routes);
 
-// Initializing the database and starting the server
-initDb((err: Error | null) => {
-  if (err) {
-    // Logging any error occurred during database initialization
-    console.log(err);
-  } else {
-    // Starting the server if database initialization is successful
-    app.listen(port);
-    console.log(`Connected to DB and listening on ${port}`);
-  }
-});
+app.listen(port);
