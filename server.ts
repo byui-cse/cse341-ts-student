@@ -16,6 +16,4 @@ initDb((err: Error | null) => {
 });
 
 app
-  
-  // Using routes from routes module
   .use('/', routes);
