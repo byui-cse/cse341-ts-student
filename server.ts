@@ -6,7 +6,7 @@ import { Db } from 'mongodb';
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
 
-initDb((err: Error | null, db?: Db | undefined) => { 
+initDb((err: Error | null) => { 
   if (err) {
     console.error(err);
   } else {
