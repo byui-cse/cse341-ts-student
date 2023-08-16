@@ -1,11 +1,9 @@
-# Instructor Example is not to be copied
+# Lesson 5 Class Activity
 
-This is an example of a solution to demonstrate to students various ways they could set up their projects. Do not copy from this project, or clone it to build your own application. Use it to learn.
+## How to run it
 
-## API Documentation
+Run npm install and npm start in the terminal. You'll need a database to connect to and an .env file with MONGODB_URI
 
-https://birch-portfolio-builder.herokuapp.com/api-docs
+### Video
 
-### Video Explanation
-
-[Video Walkthrough to share with students](https://youtu.be/AIi1gZOsRmY)
+[Video Walkthrough](https://youtu.be/8QENCujndUQ)
