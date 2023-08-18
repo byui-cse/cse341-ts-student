@@ -31,9 +31,24 @@ This file sets up the Express server, defines the port, adds the router middlewa
 
 This file creates a new Router instance, defines a GET route for the path `'/'`, and exports the router.
 
+#### tsconfig.json
+
+This file contains the configuration for the TypeScript compiler. Here's a brief explanation of some key settings:
+
+- `esModuleInterop`: Enables better compatibility between CommonJS and ES6 module systems.
+- `outDir`: Specifies the output directory for compiled JavaScript files.
+- `rootDir`: Specifies the root directory of input files.
+- `target`: Sets the JavaScript language version to compile to, in this case, ES2016.
+- `module`: Specifies the module code generation method; using "commonjs" for compatibility with Node.js.
+- `forceConsistentCasingInFileNames`: Ensures that casing is consistent in file names.
+- `strict`: Enables strict type-checking options.
+
 #### package.json
 
 This file includes the project's metadata, dependencies, and scripts to build and run the application.
+
+- `build`: Compiles the TypeScript code using the configuration from `tsconfig.json`.
+- `start`: Builds and starts the server.
 
 ### Step 4: Run the Application
 
@@ -44,6 +59,8 @@ npm start
 ```
 
 Your server will start, and you can access it at `http://localhost:<port>`, where `<port>` is either the value of the environment variable `PORT` or 8080 by default.
+
+When you make custom scripts in the future, you can run them using `npm run <script-name>`. For example, to run the build script, you would use `npm run build`.
 
 ## Key Files Explanation
 
@@ -59,8 +76,12 @@ Your server will start, and you can access it at `http://localhost:<port>`, wher
 - Creates and exports a router instance.
 - Defines a GET route that sends 'Sarah Birch' as the response.
 
+### tsconfig.json
+
+- Contains the TypeScript compiler configuration, ensuring the correct settings are applied during the build process.
+
 ### package.json
 
 - Defines scripts, dependencies, and devDependencies.
-- `build`: Compiles the TypeScript code.
-- `start`: Builds and starts the server.
+- `build`: Compiles the TypeScript code following the `tsconfig.json` settings.
+- `start`: Builds and starts the server using the compiled JavaScript.
