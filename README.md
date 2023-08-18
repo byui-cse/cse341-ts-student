@@ -8,18 +8,18 @@ This tutorial is for students of the CSE 341 course at Brigham Young University 
 
 Clone the repository to your local machine using the following command:
 
-\`\`\`bash
+
 git clone https://github.com/byui-cse/cse341-ts-student/tree/L01-personal-solution
-\`\`\`
+
 
 ### Step 2: Install Dependencies
 
 Navigate to the project folder and install the required dependencies:
 
-\`\`\`bash
+```
 cd cse341-ts-student
 npm install
-\`\`\`
+```
 
 ### Step 3: Understand the Main Files
 
@@ -39,9 +39,9 @@ This file includes the project's metadata, dependencies, and scripts to build an
 
 Build and run the server using the following command:
 
-\`\`\`bash
+```
 npm start
-\`\`\`
+```
 
 Your server will start, and you can access it at `http://localhost:<port>`, where `<port>` is either the value of the environment variable `PORT` or 8080 by default.
 
