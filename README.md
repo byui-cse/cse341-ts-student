@@ -28,6 +28,7 @@ This is the code base for the cse341 course, which displays a joke on the home r
 
 - **server.ts**: Main entry point for the application.
 - **routes/index.ts**: Defines the routes for the Express app.
+- **controllers/index.ts**: Contains the logic to display a joke.
 - **tsconfig.json**: TypeScript compiler options.
 
 ## Usage
