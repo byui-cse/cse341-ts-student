@@ -85,3 +85,19 @@ When you make custom scripts in the future, you can run them using `npm run <scr
 - Defines scripts, dependencies, and devDependencies.
 - `build`: Compiles the TypeScript code following the `tsconfig.json` settings.
 - `start`: Builds and starts the server using the compiled JavaScript.
+
+### Deploy to Render
+
+You can deploy your TypeScript Express application to [Render](https://dashboard.render.com/) by creating a web service. Follow these steps to deploy:
+
+1. Go to [Render Dashboard](https://dashboard.render.com/) and either create a new account or log in to your existing account.
+2. Click on the **New** button.
+3. Select **Web Service** from the options.
+4. Click on **Connect to Github** to link your GitHub account. You will need to grant necessary permissions for Render to access your repositories.
+5. Choose the appropriate GitHub repository containing your project.
+6. In the **Build Command** field, enter `npm install` to install all necessary dependencies.
+7. In the **Start Command** field, enter `npm start` to run the application.
+
+Once you have configured these settings, click **Save** or **Deploy** (depending on the user interface at the time). Render will build and deploy your web service, making it accessible through a unique URL provided by Render.
+
+Note: Ensure that your `tsconfig.json` and `package.json` are correctly set up as described earlier in this guide, as Render will use these configurations during the build and deploy process.
