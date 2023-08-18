@@ -1,5 +1,3 @@
-# cse341-apicourse-code
-
 ## Description
 This is the code base for the cse341 course, which displays a joke on the home route.
 
