@@ -8,9 +8,9 @@ This tutorial is for students of the CSE 341 course at Brigham Young University 
 
 Clone the repository to your local machine using the following command:
 
-
-git clone https://github.com/byui-cse/cse341-ts-student/tree/L01-personal-solution
-
+```
+git clone -b L01-personal-solution https://github.com/byui-cse/cse341-ts-student.git
+```
 
 ### Step 2: Install Dependencies
 
