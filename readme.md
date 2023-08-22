@@ -147,8 +147,8 @@ In this step, you'll add the contacts to MongoDB Compass by creating a new datab
 Follow the steps below to add the contacts to MongoDB Compass:
 
 1. Open MongoDB Compass.
-2. Create a new database and name it according to your project requirements.
-3. Create a new collection within the database.
+2. Create a new database.
+3. Create a new collection within the database, it must match the collection name specified in contacts.ts in the controllers directory, in this case its 'contacts'.
 4. Copy and paste the JSON content above into the collection.
 
 For detailed step-by-step instructions, please refer to [this video tutorial](https://youtu.be/N6DC0uQ6c-k?si=bWtSJ1pkI-AMvBY4&t=157).
