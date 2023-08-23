@@ -34,7 +34,6 @@ To complete this assignment, you will create a backend for a frontend that is al
 ### File Structure Guidelines:
 
 - Maintain a clear file structure, including folders for controllers, routes, etc.
-- Consistent organization enhances code readability and maintenance.
 
 ### Additional Notes:
 
