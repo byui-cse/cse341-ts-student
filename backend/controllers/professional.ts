@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-const data: Data[] = require('../user.json'); // Importing user.json file from one directory up
+import data from '../user.json'; // Importing user.json file from one directory up
 
 type Data = {
   _id: {
