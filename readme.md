@@ -1,7 +1,4 @@
-# CSE341 Project
-
-This project requires MongoDB and Node.js to run. Follow the instructions below to clone the repository, set up the environment variables, install the necessary packages, and run the application.
-
+# CSE341 Lesson 3 Personal Solution
 ## How to Clone the Repository
 
 1. Open a terminal or command prompt.
