@@ -101,3 +101,6 @@ You can deploy your TypeScript Express application to [Render](https://dashboard
 Once you have configured these settings, click **Save** or **Deploy** (depending on the user interface at the time). Render will build and deploy your web service, making it accessible through a unique URL provided by Render.
 
 Note: Ensure that your `tsconfig.json` and `package.json` are correctly set up as described earlier in this guide, as Render will use these configurations during the build and deploy process.
+
+## Resources
+[Video Tutorial](https://www.youtube.com/watch?v=n7D8DNl7Svo)
