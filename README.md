@@ -37,3 +37,4 @@ This is the code base for the cse341 course, which displays a joke on the home r
 
 ## Links
 - [Repository](https://github.com/byui-cse/cse341-ts-student/tree/L01-class-complete)
+- [Video](https://www.youtube.com/watch?v=iYMgI0gYORI)
