@@ -1,7 +1,7 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import { initDb } from './db/connect';
 import routes from './routes/index';
-import { Db } from 'mongodb'; 
+
 
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
