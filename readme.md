@@ -159,3 +159,6 @@ For detailed step-by-step instructions, please refer to [this video tutorial](ht
 You can deploy your TypeScript Express application to [Render](https://dashboard.render.com/), following similar steps as described for L01 and adjusting for this specific project.
 
 Note: Ensure configurations in `tsconfig.json` and `package.json` are correctly set up as Render will use these during the build and deploy process.
+
+## Links
+[Video Tutorial](https://www.youtube.com/watch?v=bDzLafY9sRE)
