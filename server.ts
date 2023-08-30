@@ -6,6 +6,10 @@ import routes from './routes/index';
 const app: Express = express();
 const port: string | number = process.env.PORT || 3000;
 
+app
+  .use('/', routes);
+
+
 initDb((err: Error | null) => { 
   if (err) {
     console.error(err);
@@ -15,5 +19,3 @@ initDb((err: Error | null) => {
   }
 });
 
-app
-  .use('/', routes);
