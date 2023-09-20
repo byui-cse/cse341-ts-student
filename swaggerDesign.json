@@ -28,7 +28,7 @@
         "description": "These API endpoints are designed and will be created in the near future"
       }
     ],
-    "schemes": ["https"],
+    "schemes": ["http"],
     "paths": {
       "/theme/{themeName}": {
         "get": {

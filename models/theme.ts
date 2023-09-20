@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-interface ITheme extends Document {
+export interface ITheme extends Document {
   themeName: string;
   fontSize: number;
   fontFamily: string;

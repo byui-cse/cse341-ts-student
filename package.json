@@ -2,10 +2,10 @@
     "name": "cse341-ts-student",
     "version": "1.0.0",
     "description": "This repository contains a collection of code for students that take the CSE 341 course at Brigham Young University - Idaho.",
-    "main": "dist/app.js",
+    "main": "dist/server.js",
     "scripts": {
         "build": "npx tsc",
-        "start": "npm run build && nodemon dist/app.js",
+        "start": "npm run build && nodemon dist/server.js",
         "lint": "eslint '**/*.ts'",
         "lint:fix": "eslint '**/*.ts' --quiet --fix",
         "format": "prettier --write '**/*.ts'",

@@ -1,7 +1,7 @@
 import dbConfig from '../config/db.config';
 import mongoose from 'mongoose';
-import themeModel, { Theme } from './theme';
-import userModel, { User } from './user';
+import themeModel, { ITheme } from './theme';
+import userModel, { IUser } from './user';
 import { Model } from 'mongoose';
 
 mongoose.Promise = global.Promise;
@@ -9,8 +9,8 @@ mongoose.Promise = global.Promise;
 const db = {
   mongoose: mongoose,
   url: dbConfig.url,
-  theme: themeModel as Model<Theme>,
-  user: userModel as Model<User>,
+  theme: themeModel as Model<ITheme>,
+  user: userModel as Model<IUser>,
 };
 
 export default db;
