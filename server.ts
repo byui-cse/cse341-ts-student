@@ -22,7 +22,7 @@ db.mongoose.connect(db.url, {
     console.log(`DB Connected and server running on ${port}.`);
   });
 })
-.catch((err: any) => {  // Consider defining a specific error type.
+.catch((err: any) => { 
   console.log('Cannot connect to the database!', err);
   process.exit();
 });
