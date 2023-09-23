@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const models_1 = __importDefault(require("./models"));
 const routes_1 = __importDefault(require("./routes"));
 const port = process.env.PORT || 8080;
 const app = (0, express_1.default)();
@@ -16,8 +15,8 @@ app
     next();
 })
     .use('/', routes_1.default);
-models_1.default.mongoose
-    .connect(models_1.default.url)
+const models_1 = __importDefault(require("./models"));
+models_1.default.mongoose.connect(models_1.default.url, {})
     .then(() => {
     app.listen(port, () => {
         console.log(`DB Connected and server running on ${port}.`);

@@ -24,51 +24,32 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const userSchema = new mongoose_1.Schema({
-    username: {
-        type: String,
-    },
-    password: {
-        type: String,
-    },
-    displayName: {
-        type: String,
-    },
-    email: {
-        type: String,
-    },
-    phoneNumber: {
-        type: String,
-    },
-    currentLocation: {
-        type: String,
-    },
-    openToNewOpportunities: {
-        type: Boolean,
-    },
-    profileIsPublic: {
-        type: Boolean,
-    },
-    theme_name: {
-        type: String,
+// Define the schema
+const UserSchema = new mongoose_1.Schema({
+    username: { type: String },
+    password: { type: String },
+    displayName: { type: String },
+    email: { type: String },
+    phoneNumber: { type: String },
+    currentLocation: { type: String },
+    openToNewOpportunities: { type: Boolean },
+    profileIsPublic: { type: Boolean },
+    theme_name: { type: String },
+    info: {
+        email: { type: String },
+        phoneNumber: { type: String },
+        currentLocation: { type: String },
+        openToNewOpportunities: { type: Boolean },
+        profileIsPublic: { type: Boolean },
+        theme_name: { type: String }
     },
     profile: {
-        experience: {
-            type: [mongoose_1.default.SchemaTypes.Mixed],
-        },
-        education: {
-            type: [mongoose_1.default.SchemaTypes.Mixed],
-        },
-        projects: {
-            type: [mongoose_1.default.SchemaTypes.Mixed],
-        },
-        skills: {
-            type: [String],
-        },
-        references: {
-            type: [mongoose_1.default.SchemaTypes.Mixed],
-        },
-    },
+        experience: { type: [mongoose_1.Schema.Types.Mixed] },
+        education: { type: [mongoose_1.Schema.Types.Mixed] },
+        projects: { type: [mongoose_1.Schema.Types.Mixed] },
+        skills: { type: [String] },
+        references: { type: [mongoose_1.Schema.Types.Mixed] }
+    }
 });
-const User = mongoose_1.default.model('users', userSchema);
-exports.default = User;
+// Create the model and export it
+exports.default = mongoose_1.default.model('User', UserSchema);

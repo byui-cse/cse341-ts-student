@@ -1,8 +1,7 @@
-import { Router } from 'express';
-import * as themeController from '../controllers/theme';
+import express from 'express';
+import themeController from '../controllers/theme';  // Assuming default export
+const themeRouter = express.Router();
 
-const router: Router = Router();
+themeRouter.get('/:themeName', themeController.getTheme);
 
-router.get('/:themeName', themeController.getTheme);
-
-export default router;
+export default themeRouter;

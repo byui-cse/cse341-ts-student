@@ -1,16 +1,18 @@
 import dbConfig from '../config/db.config';
 import mongoose from 'mongoose';
-import themeModel, { ITheme } from './theme';
-import userModel, { IUser } from './user';
-import { Model } from 'mongoose';
+import ThemeModel from './theme';
+import UserModel from './user';
 
-mongoose.Promise = global.Promise;
-
-const db = {
-  mongoose: mongoose,
+const db: {
+  mongoose: typeof mongoose;
+  url: string;
+  theme: any;  
+  user: any;
+} = {
+  mongoose,
   url: dbConfig.url,
-  theme: themeModel as Model<ITheme>,
-  user: userModel as Model<IUser>,
+  theme: ThemeModel,  
+  user: UserModel,   
 };
 
 export default db;

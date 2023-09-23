@@ -25,21 +25,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
 const ThemeSchema = new mongoose_1.Schema({
-    themeName: {
-        type: String,
-    },
-    fontSize: {
-        type: Number,
-    },
-    fontFamily: {
-        type: String,
-    },
-    inspiration: {
-        type: String,
-    },
-    colors: {
-        type: [String],
-    },
+    themeName: { type: String },
+    fontSize: { type: Number },
+    fontFamily: { type: String },
+    inspiration: { type: String },
+    colors: { type: [String] }
 });
-const Theme = mongoose_1.default.model('themes', ThemeSchema);
-exports.default = Theme;
+exports.default = mongoose_1.default.model('Theme', ThemeSchema);

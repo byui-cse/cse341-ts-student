@@ -1,6 +1,7 @@
-import mongoose, { Schema, Document, Model } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose';
 
-export interface IUser extends Document {
+
+interface IUser extends Document {
   username: string;
   password: string;
   displayName: string;
@@ -10,6 +11,14 @@ export interface IUser extends Document {
   openToNewOpportunities: boolean;
   profileIsPublic: boolean;
   theme_name: string;
+  info: {
+    email: string;
+    phoneNumber: string;
+    currentLocation: string;
+    openToNewOpportunities: boolean;
+    profileIsPublic: boolean;
+    theme_name: string;
+  };
   profile: {
     experience: any[];
     education: any[];
@@ -19,53 +28,33 @@ export interface IUser extends Document {
   };
 }
 
-const userSchema: Schema<IUser> = new Schema({
-  username: {
-    type: String,
-  },
-  password: {
-    type: String,
-  },
-  displayName: {
-    type: String,
-  },
-  email: {
-    type: String,
-  },
-  phoneNumber: {
-    type: String,
-  },
-  currentLocation: {
-    type: String,
-  },
-  openToNewOpportunities: {
-    type: Boolean,
-  },
-  profileIsPublic: {
-    type: Boolean,
-  },
-  theme_name: {
-    type: String,
+// Define the schema
+const UserSchema: Schema = new Schema({
+  username: { type: String },
+  password: { type: String },
+  displayName: { type: String },
+  email: { type: String },
+  phoneNumber: { type: String },
+  currentLocation: { type: String },
+  openToNewOpportunities: { type: Boolean },
+  profileIsPublic: { type: Boolean },
+  theme_name: { type: String },
+  info: {
+    email: { type: String },
+    phoneNumber: { type: String },
+    currentLocation: { type: String },
+    openToNewOpportunities: { type: Boolean },
+    profileIsPublic: { type: Boolean },
+    theme_name: { type: String }
   },
   profile: {
-    experience: {
-      type: [mongoose.SchemaTypes.Mixed],
-    },
-    education: {
-      type: [mongoose.SchemaTypes.Mixed],
-    },
-    projects: {
-      type: [mongoose.SchemaTypes.Mixed],
-    },
-    skills: {
-      type: [String],
-    },
-    references: {
-      type: [mongoose.SchemaTypes.Mixed],
-    },
-  },
+    experience: { type: [Schema.Types.Mixed] },
+    education: { type: [Schema.Types.Mixed] },
+    projects: { type: [Schema.Types.Mixed] },
+    skills: { type: [String] },
+    references: { type: [Schema.Types.Mixed] }
+  }
 });
 
-const User: Model<IUser> = mongoose.model('users', userSchema);
-
-export default User;
+// Create the model and export it
+export default mongoose.model<IUser>('User', UserSchema);

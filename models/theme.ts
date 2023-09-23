@@ -1,3 +1,4 @@
+
 import mongoose, { Schema, Document } from 'mongoose';
 
 export interface ITheme extends Document {
@@ -8,24 +9,12 @@ export interface ITheme extends Document {
   colors: string[];
 }
 
-const ThemeSchema: Schema<ITheme> = new Schema({
-  themeName: {
-    type: String,
-  },
-  fontSize: {
-    type: Number,
-  },
-  fontFamily: {
-    type: String,
-  },
-  inspiration: {
-    type: String,
-  },
-  colors: {
-    type: [String],
-  },
+const ThemeSchema: Schema = new Schema({
+  themeName: { type: String },
+  fontSize: { type: Number },
+  fontFamily: { type: String },
+  inspiration: { type: String },
+  colors: { type: [String] }
 });
 
-const Theme = mongoose.model<ITheme>('themes', ThemeSchema);
-
-export default Theme;
+export default mongoose.model<ITheme>('Theme', ThemeSchema);

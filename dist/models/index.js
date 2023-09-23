@@ -7,7 +7,6 @@ const db_config_1 = __importDefault(require("../config/db.config"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const theme_1 = __importDefault(require("./theme"));
 const user_1 = __importDefault(require("./user"));
-mongoose_1.default.Promise = global.Promise;
 const db = {
     mongoose: mongoose_1.default,
     url: db_config_1.default.url,

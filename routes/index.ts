@@ -1,12 +1,12 @@
-import express, { Router } from 'express';
-import swagger from './swagger';
-import user from './user';
-import theme from './theme';
+import express from 'express';
+import s from './swagger';
+import userRouter from './user';
+import themeRouter from './theme';
 
-const router: Router = express.Router();
+const mainRouter = express.Router();
 
-router.use('/', swagger);
-router.use('/user', user);
-router.use('/theme', theme);
+mainRouter.use('/', s);
+mainRouter.use('/user',userRouter ); 
+mainRouter.use('/theme', themeRouter);  
 
-export default router;
+export default mainRouter;
