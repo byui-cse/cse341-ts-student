@@ -1,10 +1,32 @@
 import { Request, Response } from 'express';
 import db from '../models';
 const User = db.user;
-import * as passwordUtil from '../util/passwordComplexityCheck'; 
+//import * as passwordUtil from '../util/passwordComplexityCheck'; 
 
 
 export const create = (req: Request, res: Response): void => {
+     // #swagger.description = 'Endpoint used to create a new user.'
+     // CREATE USER
+// #swagger.description = 'Endpoint used to create a new user.'
+/* #swagger.parameters['newUser'] = {
+  in: 'body',
+  description: 'User object that needs to be added.',
+  required: true,
+  type: 'object',
+  schema: {
+    username: 'string',
+    password: 'string',
+    displayName: 'string',
+    email: 'string',
+    phoneNumber: 'string',
+    currentLocation: 'string',
+    openToNewOpportunities: false,
+    profileIsPublic: true,
+    theme_name: 'string',
+    info: 'object',
+    profile: 'object'
+  }
+} */
   try {
     console.log("User Model: ", User);
     const { username, password } = req.body;
@@ -13,13 +35,13 @@ export const create = (req: Request, res: Response): void => {
       res.status(400).send({ message: 'Content cannot be empty!' });
       return;
     }
-
+/*
     const passwordCheck = passwordUtil.passwordPass(password);
 
     if (passwordCheck.error) {
       res.status(400).send({ message: passwordCheck.error });
       return;
-    }
+    }*/
 
     const user = new User(req.body);
 
@@ -40,7 +62,10 @@ export const create = (req: Request, res: Response): void => {
   }
 };
 
+
 export const getAll = (req: Request, res: Response): void => {
+  // GET ALL USERS
+// #swagger.description = 'Endpoint to fetch all users.'
   try {
     User.find({})
       .then((data: any) => {
@@ -74,6 +99,30 @@ export const getUser = (req: Request, res: Response): void => {
 };
 
 export const updateUser = async (req: Request, res: Response) => {
+  // UPDATE USER
+// #swagger.description = 'Endpoint to update an existing user by username.'
+/* #swagger.parameters['username'] = {
+  in: 'path',
+  description: 'Username of the user to update.',
+  required: true,
+  type: 'string'
+} */
+/* #swagger.parameters['updatedUser'] = {
+  in: 'body',
+  description: 'Updated user data.',
+  required: false,
+  type: 'object',
+  schema: {
+    password: 'string',
+    displayName: 'string',
+    email: 'string',
+    phoneNumber: 'string',
+    currentLocation: 'string',
+    openToNewOpportunities: false,
+    profileIsPublic: true,
+    theme_name: 'string',
+  }
+} */
   try {
     const username = req.params.username;
 
@@ -81,14 +130,15 @@ export const updateUser = async (req: Request, res: Response) => {
       res.status(400).send({ message: 'Invalid Username Supplied' });
       return;
     }
+
     const password = req.body.password;
-    
+    /* Broken in render currently, works on local host
     const passwordCheck = passwordUtil.passwordPass(password);
 
     if (passwordCheck.error) {
       res.status(400).send({ message: passwordCheck.error });
       return;
-    }
+    }*/
 
     const user = await User.findOne({ username }).exec();
 
@@ -112,6 +162,14 @@ export const updateUser = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
+  // DELETE USER
+// #swagger.description = 'Endpoint to delete a user by username.'
+/* #swagger.parameters['username'] = {
+  in: 'path',
+  description: 'Username of the user to delete.',
+  required: true,
+  type: 'string'
+} */
   try {
     const username = req.params.username;
     if (!username) {

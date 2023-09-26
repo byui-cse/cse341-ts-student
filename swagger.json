@@ -23,7 +23,7 @@
     },
     "/user/": {
       "get": {
-        "description": "",
+        "description": "Endpoint to fetch all users.",
         "responses": {
           "200": {
             "description": "OK"
@@ -34,19 +34,59 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Endpoint used to create a new user.",
         "parameters": [
           {
-            "name": "body",
+            "name": "newUser",
             "in": "body",
+            "description": "User object that needs to be added.",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "username": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "string"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "string"
+                },
+                "displayName": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "currentLocation": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "openToNewOpportunities": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "profileIsPublic": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "theme_name": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "info": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "profile": {
+                  "type": "string",
+                  "example": "object"
                 }
               }
             }
@@ -86,31 +126,54 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Endpoint to update an existing user by username.",
         "parameters": [
           {
             "name": "username",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Username of the user to update."
           },
           {
-            "name": "body",
+            "name": "updatedUser",
             "in": "body",
+            "description": "Updated user data.",
+            "required": false,
             "schema": {
               "type": "object",
               "properties": {
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "string"
                 },
                 "displayName": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "string"
                 },
-                "info": {
-                  "example": "any"
+                "email": {
+                  "type": "string",
+                  "example": "string"
                 },
-                "profile": {
-                  "example": "any"
+                "phoneNumber": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "currentLocation": {
+                  "type": "string",
+                  "example": "string"
+                },
+                "openToNewOpportunities": {
+                  "type": "boolean",
+                  "example": false
+                },
+                "profileIsPublic": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "theme_name": {
+                  "type": "string",
+                  "example": "string"
                 }
               }
             }
@@ -132,13 +195,14 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Endpoint to delete a user by username.",
         "parameters": [
           {
             "name": "username",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "Username of the user to delete."
           }
         ],
         "responses": {

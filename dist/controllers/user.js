@@ -17,6 +17,28 @@ const models_1 = __importDefault(require("../models"));
 const User = models_1.default.user;
 //import * as passwordUtil from '../util/passwordComplexityCheck'; 
 const create = (req, res) => {
+    // #swagger.description = 'Endpoint used to create a new user.'
+    // CREATE USER
+    // #swagger.description = 'Endpoint used to create a new user.'
+    /* #swagger.parameters['newUser'] = {
+      in: 'body',
+      description: 'User object that needs to be added.',
+      required: true,
+      type: 'object',
+      schema: {
+        username: 'string',
+        password: 'string',
+        displayName: 'string',
+        email: 'string',
+        phoneNumber: 'string',
+        currentLocation: 'string',
+        openToNewOpportunities: false,
+        profileIsPublic: true,
+        theme_name: 'string',
+        info: 'object',
+        profile: 'object'
+      }
+    } */
     try {
         console.log("User Model: ", User);
         const { username, password } = req.body;
@@ -51,6 +73,8 @@ const create = (req, res) => {
 };
 exports.create = create;
 const getAll = (req, res) => {
+    // GET ALL USERS
+    // #swagger.description = 'Endpoint to fetch all users.'
     try {
         User.find({})
             .then((data) => {
@@ -86,6 +110,30 @@ const getUser = (req, res) => {
 };
 exports.getUser = getUser;
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // UPDATE USER
+    // #swagger.description = 'Endpoint to update an existing user by username.'
+    /* #swagger.parameters['username'] = {
+      in: 'path',
+      description: 'Username of the user to update.',
+      required: true,
+      type: 'string'
+    } */
+    /* #swagger.parameters['updatedUser'] = {
+      in: 'body',
+      description: 'Updated user data.',
+      required: false,
+      type: 'object',
+      schema: {
+        password: 'string',
+        displayName: 'string',
+        email: 'string',
+        phoneNumber: 'string',
+        currentLocation: 'string',
+        openToNewOpportunities: false,
+        profileIsPublic: true,
+        theme_name: 'string',
+      }
+    } */
     try {
         const username = req.params.username;
         if (!username) {
@@ -93,7 +141,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             return;
         }
         const password = req.body.password;
-        /*
+        /* Broken in render currently, works on local host
         const passwordCheck = passwordUtil.passwordPass(password);
     
         if (passwordCheck.error) {
@@ -120,6 +168,14 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.updateUser = updateUser;
 const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // DELETE USER
+    // #swagger.description = 'Endpoint to delete a user by username.'
+    /* #swagger.parameters['username'] = {
+      in: 'path',
+      description: 'Username of the user to delete.',
+      required: true,
+      type: 'string'
+    } */
     try {
         const username = req.params.username;
         if (!username) {
