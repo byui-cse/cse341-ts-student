@@ -1,4 +1,4 @@
-/*
+
 import JoiPasswordComplexity from 'joi-password-complexity';
 
 const complexityOptions = {
@@ -13,4 +13,4 @@ const complexityOptions = {
 
 export const passwordPass = (passwordToCheck: string) => {
   return JoiPasswordComplexity(complexityOptions, 'Password').validate(passwordToCheck);
-};*/
+};

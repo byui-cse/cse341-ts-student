@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import db from '../models';
 const User = db.user;
-//import * as passwordUtil from '../util/passwordComplexityCheck'; 
+import * as passwordUtil from '../util/passwordComplexityCheck'; 
 
 
 export const create = (req: Request, res: Response): void => {
@@ -13,13 +13,13 @@ export const create = (req: Request, res: Response): void => {
       res.status(400).send({ message: 'Content cannot be empty!' });
       return;
     }
-/*
+
     const passwordCheck = passwordUtil.passwordPass(password);
 
     if (passwordCheck.error) {
       res.status(400).send({ message: passwordCheck.error });
       return;
-    }*/
+    }
 
     const user = new User(req.body);
 
@@ -82,13 +82,13 @@ export const updateUser = async (req: Request, res: Response) => {
       return;
     }
     const password = req.body.password;
-    /*
+    
     const passwordCheck = passwordUtil.passwordPass(password);
 
     if (passwordCheck.error) {
       res.status(400).send({ message: passwordCheck.error });
       return;
-    }*/
+    }
 
     const user = await User.findOne({ username }).exec();
 
