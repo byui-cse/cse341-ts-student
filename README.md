@@ -25,12 +25,14 @@
 2. Run the following commands to install the required packages and start the application:
    ```bash
    npm install
+   npm run swagger
    npm start
    ```
 
 ## Testing
 
 Test the endpoints in the `routes.rest` file with Rest Client or another similar tool.
+Note: Remember to change the swagger.ts to use localhost and http if you are testing locally.
 
 ### Video Tutorial
 
