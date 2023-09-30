@@ -4,25 +4,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const body_parser_1 = __importDefault(require("body-parser"));
-const routes_1 = __importDefault(require("./routes"));
-const port = process.env.PORT || 8080;
+const express_openid_connect_1 = require("express-openid-connect");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const app = (0, express_1.default)();
-app
-    .use(body_parser_1.default.json())
-    .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-})
-    .use('/', routes_1.default);
-const models_1 = __importDefault(require("./models"));
-models_1.default.mongoose.connect(models_1.default.url, {})
-    .then(() => {
-    app.listen(port, () => {
-        console.log(`DB Connected and server running on ${port}.`);
-    });
-})
-    .catch((err) => {
-    console.log('Cannot connect to the database!', err);
-    process.exit();
+const port = Number(process.env.PORT) || 3000;
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.SECRET,
+    baseURL: process.env.BASE_URL,
+    clientID: process.env.CLIENT_ID,
+    issuerBaseURL: "https://dev-n45hha6s7fx4hqot.us.auth0.com",
+};
+app.use((0, express_openid_connect_1.auth)(config));
+app.get('/', (req, res) => {
+    res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+app.get('/profile', (0, express_openid_connect_1.requiresAuth)(), (req, res) => {
+    res.send(JSON.stringify(req.oidc.user));
+});
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 });
