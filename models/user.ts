@@ -20,11 +20,11 @@ interface IUser extends Document {
     theme_name: string;
   };
   profile: {
-    experience: any[];
-    education: any[];
-    projects: any[];
+    experience: object[];
+    education: object[];
+    projects: object[];
     skills: string[];
-    references: any[];
+    references: object[];
   };
 }
 

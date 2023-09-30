@@ -1,4 +1,27 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -15,7 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUser = exports.updateUser = exports.getUser = exports.getAll = exports.create = void 0;
 const models_1 = __importDefault(require("../models"));
 const User = models_1.default.user;
-//import * as passwordUtil from '../util/passwordComplexityCheck'; 
+const passwordUtil = __importStar(require("../util/passwordComplexityCheck"));
 const create = (req, res) => {
     // #swagger.description = 'Endpoint used to create a new user.'
     // CREATE USER
@@ -46,13 +69,11 @@ const create = (req, res) => {
             res.status(400).send({ message: 'Content cannot be empty!' });
             return;
         }
-        /*
-            const passwordCheck = passwordUtil.passwordPass(password);
-        
-            if (passwordCheck.error) {
-              res.status(400).send({ message: passwordCheck.error });
-              return;
-            }*/
+        const passwordCheck = passwordUtil.passwordPass(password);
+        if (passwordCheck.error) {
+            res.status(400).send({ message: passwordCheck.error });
+            return;
+        }
         const user = new User(req.body);
         user.save()
             .then((data) => {
@@ -141,13 +162,11 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             return;
         }
         const password = req.body.password;
-        /* Broken in render currently, works on local host
         const passwordCheck = passwordUtil.passwordPass(password);
-    
         if (passwordCheck.error) {
-          res.status(400).send({ message: passwordCheck.error });
-          return;
-        }*/
+            res.status(400).send({ message: passwordCheck.error });
+            return;
+        }
         const user = yield User.findOne({ username }).exec();
         if (!user) {
             res.status(404).send({ message: 'User not found' });
@@ -161,6 +180,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         user.profile = req.body.profile;
         yield user.save();
         res.status(204).send();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     }
     catch (err) {
         res.status(500).json({ message: err.message || 'Some error occurred while processing your request.' });
@@ -188,6 +208,7 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             return;
         }
         res.status(204).send();
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     }
     catch (err) {
         res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });

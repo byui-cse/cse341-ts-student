@@ -28,7 +28,6 @@ export const create = (req: Request, res: Response): void => {
   }
 } */
   try {
-    console.log("User Model: ", User);
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -46,11 +45,11 @@ export const create = (req: Request, res: Response): void => {
     const user = new User(req.body);
 
     user.save()
-      .then((data: any) => {
+      .then((data: object) => {
         console.log("Data saved: ", data);
         res.status(200).send(data);
       })
-      .catch((err: { message: any; }) => {
+      .catch((err: Error) => {
         console.error("Error in saving: ", err);
         res.status(500).send({
           message: err.message || 'Some error occurred while creating the user.'
@@ -68,10 +67,10 @@ export const getAll = (req: Request, res: Response): void => {
 // #swagger.description = 'Endpoint to fetch all users.'
   try {
     User.find({})
-      .then((data: any) => {
+      .then((data: object) => {
         res.status(200).send(data);
       })
-      .catch((err: { message: any; }) => {
+      .catch((err: { message: object }) => {
         res.status(500).send({
           message: err.message || 'Some error occurred while retrieving users.'
         });
@@ -85,10 +84,10 @@ export const getUser = (req: Request, res: Response): void => {
   try {
    const username = req.params.username;
     User.find({ username })
-      .then((data: any) => {
+      .then((data: object) => {
         res.status(200).send(data);
       })
-      .catch((err: { message: any; }) => {
+      .catch((err: { message: object }) => {
         res.status(500).send({
           message: err.message || 'Some error occurred while retrieving the user.'
         });
@@ -132,7 +131,6 @@ export const updateUser = async (req: Request, res: Response) => {
     }
 
     const password = req.body.password;
-
     const passwordCheck = passwordUtil.passwordPass(password);
 
     if (passwordCheck.error) {
@@ -156,6 +154,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
     await user.save();
     res.status(204).send();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while processing your request.' });
   }
@@ -185,6 +184,7 @@ export const deleteUser = async (req: Request, res: Response): Promise<void> => 
     }
     
     res.status(204).send();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
   }

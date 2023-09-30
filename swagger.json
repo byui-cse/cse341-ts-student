@@ -5,10 +5,10 @@
     "description": "",
     "version": "1.0.0"
   },
-  "host": "ts-test-lr62.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/api-docs": {

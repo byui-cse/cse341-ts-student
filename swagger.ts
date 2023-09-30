@@ -4,10 +4,10 @@ const doc = {
     title: 'API',
     description: ''
   },
- // host: 'localhost:8080',
- //   schemes: ['http']
-  host: 'ts-test-lr62.onrender.com',
-  schemes: ['https']
+  host: 'localhost:8080',
+    schemes: ['http']
+  //host: 'ts-test-lr62.onrender.com',
+  //schemes: ['https']
 };
 
 const outputFile = './swagger.json';
