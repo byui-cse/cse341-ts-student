@@ -1,10 +1,20 @@
-# CSE341 Lesson 4 Personal Solution
+
+# CSE 341 - Lesson 06 - Team Start
+
+## About this code
+
+This code came from the lesson 4 prove solution. There may be slight modifications to it, but it will be very similar, if not exactly the same.
+
+## Class Activity Purpose
+
+The purpose of this activity is to get practice adding error handling and data validation to our node applications.
+
 ## How to Clone the Repository
 
 1. Open a terminal or command prompt.
 2. Run the following command to clone the specified branch:
    ```bash
-   git clone -b L04-personal-solution https://github.com/byui-cse/cse341-ts-student.git
+   git clone -b L06-team-start https://github.com/byui-cse/cse341-ts-student.git
    ```
 
 ## Environment Setup
@@ -25,6 +35,7 @@
 2. Run the following commands to install the required packages and start the application:
    ```bash
    npm install
+   npm run swagger
    npm start
    ```
 
@@ -32,6 +43,3 @@
 
 Test the endpoints in the `routes.rest` file with Rest Client or another similar tool.
 
-### Video Tutorial
-
-[Video Example for Students without showing all code](https://www.youtube.com/watch?v=MhObHmqk58U)
