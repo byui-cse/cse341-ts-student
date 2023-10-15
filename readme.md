@@ -25,6 +25,7 @@
 2. Run the following commands to install the required packages and start the application:
    ```bash
    npm install
+   npm run swagger
    npm start
    ```
 
