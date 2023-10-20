@@ -26,6 +26,10 @@ app
   })
   // Using routes from routes module
   .use('/', routes);
+  
+  process.on('uncaughtException', (err, origin) => {
+    console.log(process.stderr.fd, `Caught exception: ${err}\n` + `Exception origin: ${origin}`);
+  });
 
 // Initializing the database and starting the server
 initDb((err: Error | null) => {

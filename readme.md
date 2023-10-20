@@ -1,9 +1,9 @@
 
-# CSE 341 - Lesson 06 - Team Start
+# CSE 341 - Lesson 06 - Team Complete
 
 ## About this code
 
-This code came from the lesson 4 prove solution. There may be slight modifications to it, but it will be very similar, if not exactly the same.
+This code came from the lesson 4 prove solution. There may be slight modifications to it, but it will be very similar, if not exactly the same. In the solution, data validation were added to the endpoints.
 
 ## Class Activity Purpose
 
@@ -14,7 +14,7 @@ The purpose of this activity is to get practice adding error handling and data v
 1. Open a terminal or command prompt.
 2. Run the following command to clone the specified branch:
    ```bash
-   git clone -b L06-team-start https://github.com/byui-cse/cse341-ts-student.git
+   git clone -b L06-team-complete https://github.com/byui-cse/cse341-ts-student.git
    ```
 
 ## Environment Setup
@@ -41,5 +41,5 @@ The purpose of this activity is to get practice adding error handling and data v
 
 ## Testing
 
-Test the endpoints in the `routes.rest` file with Rest Client or another similar tool.
+Test the endpoints in the api-docs page. You can also test the endpoints using Postman or a similar tool.
 
