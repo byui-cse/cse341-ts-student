@@ -15,7 +15,7 @@ const config = {
     secret: process.env.SECRET,
     baseURL: process.env.BASE_URL,
     clientID: process.env.CLIENT_ID,
-    issuerBaseURL: "https://dev-n45hha6s7fx4hqot.us.auth0.com",
+    issuerBaseURL: process.env.ISSUER_BASE_URL,
 };
 app.use((0, express_openid_connect_1.auth)(config));
 app.get('/', (req, res) => {
