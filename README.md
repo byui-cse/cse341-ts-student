@@ -1,23 +1,19 @@
-# Express Authentication App
+# Lesson 8 Class Start
 
-## Overview
+The code for this class activity will pick up where the lesson 7 class activity concluded.
 
-This is a simple Express app that demonstrates user authentication using OpenID Connect via Auth0. The app provides two routes: one for checking if a user is logged in and another to display the user's profile information.
-
-## Prerequisites
-
-- Auth0 account
+## Steps to complete activity
 
 ## Installation
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/byui-cse/cse341-ts-student/tree/L07-class-complete
+    git clone https://github.com/byui-cse/cse341-ts-student/tree/L08-class-start
     ```
 
 2. Navigate into the directory:
     ```bash
-    cd L07-class-complete
+    cd L08-class-start
     ```
 
 3. Install dependencies:
@@ -25,16 +21,23 @@ This is a simple Express app that demonstrates user authentication using OpenID 
     npm install
     ```
 
-## Configuration
 
-Create a `.env` file in the root of your project and add the following variables:
+#### Creating the request
 
-```env
-SECRET=your_secret_key
-BASE_URL=http://localhost:3000
-CLIENT_ID=your_auth0_client_id
-ISSUER_BASE_URL=https://your-auth0-issuer-base-url
-```
+- Create a simple GET request which will retrieve data from a MongoDB collection of your choice (Be sure to create an .env file for your MONGODB URI).
 
-## Usage
-Follow the directions on the Auth0 website, watch the video if you need a step by step walkthrough.
+#### Swagger documentation and testing
+
+- Create a Swagger.json file for this route. You may use [swagger-autogen](https://www.npmjs.com/package/swagger-autogen) if you wish.
+- Create an "/api-docs" route like we've done before so that you can access the swagger ui. You may use [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express) if you wish.
+- Test the GET request with your swagger ui to ensure it works.
+
+#### Incorporating OAuth
+
+- Add the requiresAuth() middleware provided by Auth0 to the route you created previously.
+- Make sure you are logged out. If you try testing your route with your Swagger UI now, it will not work.
+- Go to /login again and log in like you did earlier. If you go back to /api-docs and test out your route, it will work!
+
+## Solution
+
+[GitHub Repo](https://github.com/byui-cse/cse341-code-student/tree/L08-class-complete)
