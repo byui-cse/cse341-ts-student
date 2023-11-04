@@ -1,30 +1,37 @@
 # Lesson 8 Class Start
 
-The code for this class activity will pick up where the lesson 7 class activity concluded.
+The code for this class activity contains a simple GET request which retrieves data from a MongoDB collection. The goal of this activity is to add OAuth to this route to protect it from unauthorized users.
 
-## Steps to complete activity
+## Steps to run activity
 
 ## Installation
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/byui-cse/cse341-ts-student/tree/L08-class-start
+    git clone https://github.com/byui-cse/cse341-ts-student/tree/L08-class-complete
     ```
 
 2. Navigate into the directory:
     ```bash
-    cd L08-class-start
+    cd L08-class-complete
     ```
 
 3. Install dependencies:
     ```bash
     npm install
     ```
+4. Add your MONGODB_URI to the .env file.
+
+5. Run the server:
+    ```bash
+    npm run swagger
+    npm start
+    ```
 
 
 #### Creating the request
 
-- Create a simple GET request which will retrieve data from a MongoDB collection of your choice (Be sure to create an .env file for your MONGODB URI).
+-This program creates simple GET request which will retrieve data from a MongoDB collection of your choice (Be sure to create an .env file for your MONGODB URI) and to have a USER in your mongodb database. You can update the code to retrieve data from a different collection, be sure to update the modal(USER.ts) and the get request in server.ts
 
 #### Swagger documentation and testing
 
@@ -34,9 +41,7 @@ The code for this class activity will pick up where the lesson 7 class activity 
 
 #### Incorporating OAuth
 
-- Add the requiresAuth() middleware provided by Auth0 to the route you created previously.
-- Make sure you are logged out. If you try testing your route with your Swagger UI now, it will not work.
-- Go to /login again and log in like you did earlier. If you go back to /api-docs and test out your route, it will work!
+- Go to /login again and log in. If you go back to /api-docs and test out your route, it will work if you followed the steps!
 
 ## Solution
 
