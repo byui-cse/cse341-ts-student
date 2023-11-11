@@ -1,20 +1,13 @@
-# CSE341 Lesson 9 Class Activity
+# Lesson 10 Class Activity Starting Instructions
 
-The purpose of this activity is to help students understand what API Gateways and API Managers are at a high level. For this activity, each student will be put into a group to work with.
+The purpose of this activity is to help students get their feet wet with API Management. We will use a tutorial to setup an API manager through Microsoft Azure.
 
-## Group Tasks
+## Steps to Complete
 
-- Each group will receive a question from the list below
-- Create a presentation to answer your question and teach the topic with various examples
-- Be prepared to answer questions related to your question
-- After a certain amount of time as determined by the instructor, present to the class.
-
-## Questions for Students
-
-- What is the difference between the API Gateway and API Manager?
-- When would you want to use an API Gateway?
-- When would you want to use an API Manager?
-- When would you not want to use an API Gateway?
-- When would you not want to use an API Manager?
-- How do you set up an API Gateway?
-- How do you set up an API Manager?
+- For this activity, you will first need to sign up for a microsoft account with your BYUI email if you do not already have one. 
+- Then, claim your free student Azure subscription here: [https://azure.microsoft.com/en-us/free/students/](https://azure.microsoft.com/en-us/free/students/)
+- Next, you will need to download the Azure API Management VSCode extension (see it [here](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview))
+- To complete this activity, go through the following Microsoft Tutorials. They will walk you through how to create an API Management instance and how to use it.
+- Tutorial #1: [Create a Service Instance](https://docs.microsoft.com/en-us/azure/api-management/vscode-create-service-instance)
+- Tutorial #2 [Use the API Management Extension](https://docs.microsoft.com/en-us/azure/api-management/visual-studio-code-tutorial)
+- The purpose of this activity is just to help you get some exposure to API Managers. Follow the tutorials, but feel free to explore beyond the instructions.
