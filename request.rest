@@ -1,0 +1,13 @@
+###
+GET http://localhost:8080/userInfo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbmRoOGVyNGV2ZXJAZ21haWwuY29tIiwiaWF0IjoxNjk5NzQ3NzI5fQ.7YbDUU_nQtu_PHzZ5A1jBZzQtia47lIzGjGohb4ntvQ
+
+### Put the token in the header above after running the below command, otherwise you will get an error due to an invalid token
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "email": "sandh8er4ever@gmail.com",
+	"password": "roughNcoarse"
+}
