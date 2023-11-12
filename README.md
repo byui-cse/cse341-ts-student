@@ -44,3 +44,4 @@ This repository contains the Node.js backend template for the Lesson 7 class act
 - Clean up and document your REST Client `.rest` file to serve as a guide for your backend's functionality.
 
 ### Solution
+[Repository](https://github.com/byui-cse/cse341-ts-student/tree/JWT-class-complete)
