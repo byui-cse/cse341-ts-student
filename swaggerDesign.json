@@ -33,42 +33,38 @@
       "/theme/{themeName}": {
         "get": {
           "tags": ["theme"],
-          "summary": "Finds Themes by name",
-          "description": "Each theme has a unique name, this will basically find a single theme by an exact name almost like an id",
-          "operationId": "findThemeByName",
+          "summary": "Finds all users by theme name",
+          "description": "Retrieve all users that have a specified theme name in their profile. This endpoint returns an array of user objects where the 'theme_name' matches the provided parameter.",
+          "operationId": "findUsersByThemeName",
           "produces": ["application/json"],
           "parameters": [
             {
               "name": "themeName",
               "in": "path",
-              "description": "Theme name string is required and functions as id",
+              "description": "The name of the theme to search for among users",
               "required": true,
-              "type": "string",
-              "items": {
-                "type": "string",
-                "default": "available"
-              },
-              "collectionFormat": "csv"
-            }
-          ],
-          "security": [
-            {
-              "petstore_auth": ["write:pets", "read:pets"]
+              "type": "string"
             }
           ],
           "responses": {
             "200": {
-              "description": "successful operation",
+              "description": "An array of user objects with the specified theme name",
               "schema": {
-                "type": "object"
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/User"
+                }
               }
             },
-            "400": {
-              "description": "Invalid theme name value"
+            "404": {
+              "description": "No users found with the specified theme name"
+            },
+            "500": {
+              "description": "Server error or issue with the request"
             }
           }
         }
-      },
+      },      
       "/user": {
         "post": {
           "tags": ["user"],

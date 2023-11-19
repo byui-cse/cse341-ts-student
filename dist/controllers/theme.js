@@ -5,19 +5,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTheme = void 0;
 const models_1 = __importDefault(require("../models"));
-const Theme = models_1.default.theme;
+const User = models_1.default.user;
 const getTheme = (req, res) => {
     const themeName = req.params.themeName;
-    Theme.find({ themeName: themeName })
-        .then((data) => {
-        if (!data)
-            res.status(404).send({ message: 'Not found theme with name: ' + themeName });
-        else
-            res.send(data[0]);
+    User.find({ "theme_name": themeName })
+        .then((users) => {
+        if (!users.length) {
+            res.status(404).send({ message: 'No users found with theme name: ' + themeName });
+        }
+        else {
+            res.send(users); // Sends back an array of users with the specified theme name
+        }
     })
         .catch((err) => {
         res.status(500).send({
-            message: 'Error retrieving theme with themeName=' + themeName,
+            message: 'Error retrieving users with themeName=' + themeName,
             error: err,
         });
     });

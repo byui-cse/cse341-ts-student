@@ -1,17 +1,20 @@
 import { Request, Response } from 'express';
 import db from '../models';
-const Theme = db.theme;
+const User = db.user; 
 
 export const getTheme = (req: Request, res: Response): void => {
   const themeName = req.params.themeName;
-  Theme.find({ themeName: themeName })
-    .then((data) => {
-      if (!data) res.status(404).send({ message: 'Not found theme with name: ' + themeName });
-      else res.send(data[0]);
+  User.find({ "theme_name": themeName })
+    .then((users) => {
+      if (!users.length) {
+        res.status(404).send({ message: 'No users found with theme name: ' + themeName });
+      } else {
+        res.send(users); // Sends back an array of users with the specified theme name
+      }
     })
     .catch((err) => {
       res.status(500).send({
-        message: 'Error retrieving theme with themeName=' + themeName,
+        message: 'Error retrieving users with themeName=' + themeName,
         error: err,
       });
     });
