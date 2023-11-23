@@ -63,7 +63,6 @@ const create = (req, res) => {
       }
     } */
     try {
-        console.log("User Model: ", User);
         const { username, password } = req.body;
         if (!username || !password) {
             res.status(400).send({ message: 'Content cannot be empty!' });

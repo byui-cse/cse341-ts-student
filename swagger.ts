@@ -5,7 +5,7 @@ const doc = {
     description: ''
   },
     //host: 'localhost:8080',
-    //schemes: ['http']
+   // schemes: ['http']
   host: 'ts-test-lr62.onrender.com',
   schemes: ['https']
 };
