@@ -1,4 +1,4 @@
-# Lesson 11 Class Activity Starting Code (TypeScript Edition)
+# Lesson 11 Class Activity Starting Code
 
 The purpose of this activity is to help students practice writing tests for their Node.js projects using TypeScript.
 
@@ -14,6 +14,19 @@ The purpose of this activity is to help students practice writing tests for thei
   - `npm install --save-dev supertest @types/supertest`
 - Add the following line to the scripts section of your `package.json`:
   - `"test": "jest --watch --coverage"`
+- Create a `jest.config.js` file in your project root with the following content:
+
+    ```javascript
+    module.exports = {
+        preset: 'ts-jest',
+        testEnvironment: 'node',
+        transform: {
+          '^.+\\.ts$': 'ts-jest',
+        },
+        moduleFileExtensions: ['ts', 'js', 'json', 'node'],
+        testMatch: ['**/?(*.)+(spec|test).ts'],
+    };
+    ```
 
 ### Route Tests
 
@@ -24,5 +37,4 @@ The purpose of this activity is to help students practice writing tests for thei
   - [Jest with TypeScript](https://jestjs.io/docs/getting-started#using-typescript)
   - [Supertest with TypeScript](https://www.npmjs.com/package/supertest)
 
-### Solution
-
+### [Solution](https://github.com/byui-cse/cse341-ts-student/tree/L11-class-complete)
