@@ -19,5 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', users);
+app.get('/', (req, res) => {
+    res.json({ message: 'Home' });
+  });
 
 export default app;
