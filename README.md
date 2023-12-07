@@ -1,32 +1,58 @@
-# Lesson 12 Class Activity Starting Code
+# Lesson 12 Class Activity: TypeScript Testing with MongoDB
 
-The purpose of this activity is to help students practice writing tests for their Node.js projects. This activity starts where the week11 solution left off.
+This activity is designed to practice writing tests in TypeScript for Node.js projects that interact with MongoDB.
 
-## Steps to Complete
+## Getting Started
 
-### Setup
+To begin with the Lesson 12 class activity, you can either clone the specific branch from the GitHub repository or use your completed Lesson 11 code.
 
-- Install jest's mongodb library with `npm install --save-dev @shelf/jest-mongodb`. This will let you write tests for connecting to MongoDb
-- Add the following to your package.json:
+### Download Starter Code
 
-```
+Clone the specific branch from the GitHub repository:
+
+\```bash
+git clone --branch L12-class-start https://github.com/byui-cse/cse341-ts-student.git
+cd cse341-ts-student
+npm install
+npm test
+\```
+
+### Install Additional Dependencies
+
+Install development dependencies for TypeScript testing:
+
+\```bash
+npm install --save-dev typescript jest ts-jest @types/jest @shelf/jest-mongodb
+npm install @types/mongodb
+\```
+
+## Setup
+
+Configure Jest to use the MongoDB preset by adding the following to your `package.json`:
+
+\```json
 "jest": {
-    "preset": "@shelf/jest-mongodb"
-  }
-```
+  "preset": "@shelf/jest-mongodb"
+}
+\```
 
-### MongoDb Tests
+## Writing Tests
 
-- The Jest documentation has an example of working with MongoDb: [https://jestjs.io/docs/mongodb](https://jestjs.io/docs/mongodb)
-- Write a test for inserting a user into MongoDb
-- Write a test for deleting a user from MongoDb
-- When you are finished, compare your solution with the mongo.spec.js file in the sample solution.
+Follow the Jest documentation for guidance on working with MongoDB:
 
-### Stretch: Come Up With Your Own
+- Write a test for inserting a user into MongoDB.
+- Write a test for deleting a user from MongoDB.
+- Compare your solution with the `mongo.spec.ts` file in the sample solution.
 
-- Think about what other kinds of things you could test
-- Try adding some more routes to the project and writing tests for those as well
+## Stretch Goals
 
-### Solution
+Challenge yourself by:
+
+- Considering other aspects of MongoDB that could be tested.
+- Adding more routes to your project and writing tests for them.
+
+## Solution
+
+View the code solution for this activity on GitHub:
 
 
