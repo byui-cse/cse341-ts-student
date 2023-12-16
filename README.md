@@ -55,4 +55,7 @@ Challenge yourself by:
 
 View the code solution for this activity on GitHub:
 
+https://github.com/byui-cse/cse341-ts-student/tree/L12-class-complete
+
+
 
