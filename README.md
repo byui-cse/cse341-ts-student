@@ -10,31 +10,31 @@ To begin with the Lesson 12 class activity, you can either clone the specific br
 
 Clone the specific branch from the GitHub repository:
 
-\```bash
+```bash
 git clone --branch L12-class-start https://github.com/byui-cse/cse341-ts-student.git
 cd cse341-ts-student
 npm install
 npm test
-\```
+```
 
 ### Install Additional Dependencies
 
 Install development dependencies for TypeScript testing:
 
-\```bash
+```bash
 npm install --save-dev typescript jest ts-jest @types/jest @shelf/jest-mongodb
 npm install @types/mongodb
-\```
+```
 
 ## Setup
 
 Configure Jest to use the MongoDB preset by adding the following to your `package.json`:
 
-\```json
+```json
 "jest": {
   "preset": "@shelf/jest-mongodb"
 }
-\```
+```
 
 ## Writing Tests
 
