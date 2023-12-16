@@ -15,6 +15,7 @@ const initDb = (callback: CallbackFunction): void => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
+  
   mongoose.connect(process.env.MONGODB_URI as string)
     .then((client: Mongoose) => {
       _db = client;
@@ -24,7 +25,6 @@ const initDb = (callback: CallbackFunction): void => {
       callback(err);
     });
 };
-
 
 const getDb = (): Mongoose => {
   if (!_db) {

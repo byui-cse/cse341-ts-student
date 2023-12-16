@@ -1,13 +1,5 @@
 # Lesson 12 Class Activity: TypeScript Testing with MongoDB
 
-This activity is designed to practice writing tests in TypeScript for Node.js projects that interact with MongoDB.
-
-## Getting Started
-
-To begin with the Lesson 12 class activity, you can either clone the specific branch from the GitHub repository or use your completed Lesson 11 code.
-
-### Download Starter Code
-
 Clone the specific branch from the GitHub repository:
 
 \```bash
@@ -17,42 +9,7 @@ npm install
 npm test
 \```
 
-### Install Additional Dependencies
 
-Install development dependencies for TypeScript testing:
 
-\```bash
-npm install --save-dev typescript jest ts-jest @types/jest @shelf/jest-mongodb
-npm install @types/mongodb
-\```
-
-## Setup
-
-Configure Jest to use the MongoDB preset by adding the following to your `package.json`:
-
-\```json
-"jest": {
-  "preset": "@shelf/jest-mongodb"
-}
-\```
-
-## Writing Tests
-
-Follow the Jest documentation for guidance on working with MongoDB:
-
-- Write a test for inserting a user into MongoDB.
-- Write a test for deleting a user from MongoDB.
-- Compare your solution with the `mongo.spec.ts` file in the sample solution.
-
-## Stretch Goals
-
-Challenge yourself by:
-
-- Considering other aspects of MongoDB that could be tested.
-- Adding more routes to your project and writing tests for them.
-
-## Solution
-
-View the code solution for this activity on GitHub:
 
 
