@@ -4,7 +4,7 @@ This activity is designed to practice writing tests in TypeScript for Node.js pr
 
 ## Getting Started
 
-To begin with the Lesson 12 class activity, you can either clone the specific branch from the GitHub repository or use your completed Lesson 11 code.
+To begin with the Lesson 12 class activity, you can either clone the specific branch from the GitHub repository or use your completed Lesson 11 code. Be sure that you have all the right dependencies installed.
 
 ### Download Starter Code
 
@@ -24,16 +24,6 @@ Install development dependencies for TypeScript testing:
 ```bash
 npm install --save-dev typescript jest ts-jest @types/jest @shelf/jest-mongodb
 npm install @types/mongodb
-```
-
-## Setup
-
-Configure Jest to use the MongoDB preset by adding the following to your `package.json`:
-
-```json
-"jest": {
-  "preset": "@shelf/jest-mongodb"
-}
 ```
 
 ## Writing Tests
